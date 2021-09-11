@@ -51,9 +51,19 @@ const player = {
     console.log(/* your code here */)
   },
 }
+//This function converts the seconds given to minutes:seconds format. {(200(s)=>3:20(m:s)}
+function minuteSeconds(seconds) {
+  let mins = ~~((seconds % 3600) / 60);
+  let secs = ~~seconds % 60;
+  let ret = "";
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
 
 function playSong(id) {
-  // your code here
+  // "Playing {song.title} from {song.album} by {song.artist} | {song.duration}."
+  
 }
 
 function removeSong(id) {
