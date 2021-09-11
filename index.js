@@ -1,3 +1,22 @@
+//Tester 1
+
+//EXTRA FUNCTIONS
+  
+//This function converts the seconds given to minutes:seconds format. {(200(s)=>3:20(m:s)}
+function minuteSeconds(seconds) {   
+  let mins = ~~((seconds % 3600) / 60);
+  let secs = ~~seconds % 60;
+  let ret = "";
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
+//This function checks if the ID exists inside the array.
+function idCheck(arr, id) {
+  let idStatus = arr.find(idReal => idReal.id === id) !== undefined
+  return idStatus;
+  }
+
 const player = {
   songs: [
     {
@@ -48,70 +67,18 @@ const player = {
     { id: 5, name: 'Israeli', songs: [4, 5] },
   ],
   playSong(song) {
-    console.log(/* your code here */)
+    return (`Playing ${song.title} from ${song.album} by ${song.artist} | ${minuteSeconds(song.duration)}.`);
   },
 }
-//This function converts the seconds given to minutes:seconds format. {(200(s)=>3:20(m:s)}
-function minuteSeconds(seconds) {
-  let mins = ~~((seconds % 3600) / 60);
-  let secs = ~~seconds % 60;
-  let ret = "";
-    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-    ret += "" + secs;
-    return ret;
-}
+//BASIC FUNCTIONS
 
 function playSong(id) {
-  // "Playing {song.title} from {song.album} by {song.artist} | {song.duration}."
-  
+    for (song of player.songs)
+      if (idCheck(player.songs, id)) {
+          let song = player.songs.find(x => x.id === id);
+          return (player.playSong(song));
+      } else
+          return ("ID doesn't exist.");
 }
 
-function removeSong(id) {
-  // your code here
-}
-
-function addSong(title, album, artist, duration, id) {
-  // your code here
-}
-
-function removePlaylist(id) {
-  // your code here
-}
-
-function createPlaylist(name, id) {
-  // your code here
-}
-
-function playPlaylist(id) {
-  // your code here
-}
-
-function editPlaylist(playlistId, songId) {
-  // your code here
-}
-
-function playlistDuration(id) {
-  // your code here
-}
-
-function searchByQuery(query) {
-  // your code here
-}
-
-function searchByDuration(duration) {
-  // your code here
-}
-
-module.exports = {
-  player,
-  playSong,
-  removeSong,
-  addSong,
-  removePlaylist,
-  createPlaylist,
-  playPlaylist,
-  editPlaylist,
-  playlistDuration,
-  searchByQuery,
-  searchByDuration,
-}
+console.log (playSong(2));
