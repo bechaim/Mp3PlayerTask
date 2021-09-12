@@ -1,5 +1,3 @@
-//Tester 1
-
 //EXTRA FUNCTIONS
   
 //This function converts the seconds given to minutes:seconds format. {(200(s)=>3:20(m:s)}
@@ -11,12 +9,14 @@ function minuteSeconds(seconds) {
     ret += "" + secs;
     return ret;
 }
+
 //This function checks if the ID exists inside the array.
 function idCheck(arr, id) {
   let idStatus = arr.find(idReal => idReal.id === id) !== undefined
   return idStatus;
   }
 
+//MEDIA PLAYER DATA
 const player = {
   songs: [
     {
@@ -70,6 +70,7 @@ const player = {
     return (`Playing ${song.title} from ${song.album} by ${song.artist} | ${minuteSeconds(song.duration)}.`);
   },
 }
+
 //BASIC FUNCTIONS
 
 function playSong(id) {
@@ -81,4 +82,52 @@ function playSong(id) {
           return ("ID doesn't exist.");
 }
 
-console.log (playSong(2));
+function removeSong(id) {
+  // your code here
+}
+
+function addSong(title, album, artist, duration, id) {
+  // your code here
+}
+
+function removePlaylist(id) {
+  // your code here
+}
+
+function createPlaylist(name, id) {
+  // your code here
+}
+
+function playPlaylist(id) {
+  // your code here
+}
+
+function editPlaylist(playlistId, songId) {
+  // your code here
+}
+
+function playlistDuration(id) {
+  // your code here
+}
+
+function searchByQuery(query) {
+  // your code here
+}
+
+function searchByDuration(duration) {
+  // your code here
+}
+
+module.exports = {
+  player,
+  playSong,
+  removeSong,
+  addSong,
+  removePlaylist,
+  createPlaylist,
+  playPlaylist,
+  editPlaylist,
+  playlistDuration,
+  searchByQuery,
+  searchByDuration,
+}
