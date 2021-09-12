@@ -79,7 +79,7 @@ function playSong(id) {
           let song = player.songs.find(x => x.id === id);
           return (player.playSong(song));
       } else
-          return ("ID doesn't exist.");
+          throw ("ID doesn't exist.");
 }
 
 function removeSong(id) {
